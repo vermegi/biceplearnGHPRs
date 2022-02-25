@@ -19,6 +19,15 @@ jobs:
      - name: Run Bicep linter
        run: az bicep build --file deploy/main.bicep
   
+  testGHBranchName:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+        echo "github head_ref: ${{ github.head_ref }}" 
+        echo "github base_ref: ${{ github.base_ref }}"
+        echo "github ref: ${{ github.ref }}"
+        echo "github ref_name: ${{ github.refname }}"
+  
   # validate: 
   #    runs-on: ubuntu-latest
   #    steps: 
