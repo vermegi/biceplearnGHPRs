@@ -1,5 +1,7 @@
 param location string
 param appServiceAppName string
+param storageAccountName string
+param processOrderQueueName string
 
 @allowed([
   'nonprod'
@@ -24,6 +26,18 @@ resource appServiceApp 'Microsoft.Web/sites@2020-06-01' = {
   properties: {
     serverFarmId: appServicePlan.id
     httpsOnly: true
+    siteConfig: {
+      appSettings: [
+        {
+          name: 'StorageAccountName'
+          value: storageAccountName
+        }
+        {
+          name: 'ProcessOrderQueueName'
+          value: processOrderQueueName
+        }
+      ]
+    }
   }
 }
 
