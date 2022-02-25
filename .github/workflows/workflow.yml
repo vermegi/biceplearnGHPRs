@@ -40,7 +40,10 @@ jobs:
           echo "  github.head_ref:"
           echo "  github.base_ref:"
           echo "  github.ref: refs/heads/feature/123"
-
+          echo "on pr close: "
+          echo "  github.head_ref: feature/123"
+          echo "  github.base_ref: main"
+          echo "  github.ref: main"
   
   # validate: 
   #    runs-on: ubuntu-latest
