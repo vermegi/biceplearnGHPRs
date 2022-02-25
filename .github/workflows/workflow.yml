@@ -5,7 +5,7 @@ on:
     branches: 
       - feature/*
   pull_request:
-    types: [opened, edited]
+    types: [opened, edited, closed]
     
 env: 
     AZURE_RESOURCEGROUP_NAME: ToyWebsiteTest
@@ -29,11 +29,18 @@ jobs:
           echo "github ref: ${{ github.ref }}"
           echo "github ref_name: ${{ github.refname }}"
           echo "on push to feature branch:"
+          echo "  github.head_ref:"
+          echo "  github.base_ref:"
           echo "  github.ref: refs/heads/feature/123"
           echo "on pr open: "
           echo "  github.head_ref: feature/123"
           echo "  github.base_ref: main"
           echo "  github.ref: refs/pull/3/merge"
+          echo "on pr edit: "
+          echo "  github.head_ref:"
+          echo "  github.base_ref:"
+          echo "  github.ref: refs/heads/feature/123"
+
   
   # validate: 
   #    runs-on: ubuntu-latest
