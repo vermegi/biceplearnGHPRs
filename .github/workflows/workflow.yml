@@ -4,6 +4,8 @@ on:
   push:
     branches: 
       - feature/*
+  pull_request:
+    types: [opened, edited]
     
 env: 
     AZURE_RESOURCEGROUP_NAME: ToyWebsiteTest
