@@ -1,0 +1,26 @@
+name: feature-delete-workflow
+
+on: 
+  pull_request:
+    types: [closed]
+    
+jobs:
+  remove: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: azure/login@v1
+        name: Sign in to Azure
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}    
+      - name: create resource group name
+        id: rgName
+        run: |
+         echo "github head_ref: ${{ github.github.head_ref }}"
+         IFS='/' read -ra my_array <<< "${{ github.ref }}"
+         export rgname=rg_f_${my_array[1]}
+         echo "::set-output name=rgname::$rgname"  
+      - uses: Azure/cli@v1
+        name: Delete resource group
+        with: 
+          inlineScript: az group delete -n ${{steps.rgName.outputs.rgname}} 
