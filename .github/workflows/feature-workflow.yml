@@ -25,15 +25,8 @@ jobs:
         id: rgName
         run: |
          echo "github ref_name: ${{ github.ref }}"
-         export thestring=${{ github.ref }}
-         echo $thestring
          IFS='/' read -ra my_array <<< "${{ github.ref }}"
-         echo ${my_array[3]}
-         echo "my_array: " ${my_array[3]}
-         export featurebranch=${my_array[3]}
-         echo "feature: " $featurebranch
-         export rgname=rg_f_$featurebranch
-         echo $rgname
+         export rgname=rg_f_${my_array[3]}
          echo "::set-output name=rgname::$rgname"  
       - uses: Azure/cli@v1
         name: Create resource group
