@@ -34,4 +34,4 @@ jobs:
       - uses: Azure/cli@v1
         name: Create resource group
         with: 
-          inlineScript: az group create -n ${{rgName.outputs.rgname}} -l westeurope
+          inlineScript: az group create -n ${{steps.rgName.outputs.rgname}} -l westeurope
