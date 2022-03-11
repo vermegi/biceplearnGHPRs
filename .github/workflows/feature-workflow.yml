@@ -24,8 +24,8 @@ jobs:
       - name: get resource group name
         id: rgName
         run: |
-         echo "github ref_name: ${{ github.refname }}"
-         featurebranch=${{ github.refname }}
+         echo "github ref_name: ${{ github.ref }}"
+         featurebranch=${{ github.ref }}
          feature=${$featurebranch:19}
          echo "feature: $feature"
          rgname=rg_f_$feature
