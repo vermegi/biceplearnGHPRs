@@ -26,11 +26,11 @@ jobs:
         run: |
          echo "github ref_name: ${{ github.ref }}"
          featurebranch=${{ github.ref }}
-         feature=${$featurebranch:19}
-         echo "feature: $feature"
-         rgname=rg_f_$feature
-         echo $rgname
-         echo "::set-output name=rgname::$rgname"  
+         feature=${${{featurebranch}}:19}
+         echo "feature: ${{feature}}"
+         rgname=rg_f_${{feature}}
+         echo ${{rgname}}
+         echo "::set-output name=rgname::${{rgname}}"  
       - uses: Azure/cli@v1
         name: Create resource group
         with: 
