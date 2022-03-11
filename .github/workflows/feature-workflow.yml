@@ -26,6 +26,7 @@ jobs:
         run: |
          echo "github ref_name: ${{ github.ref }}"
          IFS='/' read -ra my_array <<< "${{github.ref}}"
+         echo ${my_array[4]}
          export featurebranch=${my_array[4]}
          echo "feature: " $featurebranch
          export rgname=rg_f_$featurebranch
