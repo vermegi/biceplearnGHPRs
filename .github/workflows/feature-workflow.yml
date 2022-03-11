@@ -27,7 +27,7 @@ jobs:
          echo "github ref_name: ${{ github.ref }}"
          export thestring=${{ github.ref }}
          echo $thestring
-         IFS='/' read -ra my_array <<< "$thestring"
+         IFS='/' read -ra my_array <<< "${{ github.ref }}"
          echo ${my_array[3]}
          echo "my_array: " ${my_array[3]}
          export featurebranch=${my_array[3]}
