@@ -1,4 +1,4 @@
-name: feature-workflow
+name: featuretest-workflow
 
 on: 
   push:
