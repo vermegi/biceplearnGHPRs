@@ -11,7 +11,7 @@ env:
 
 jobs:
   lint: 
-     uses: givermei/biceplearnGHPRs/.github/workflows/lint.yml@main
+     uses: vermegi/biceplearnGHPRs/.github/workflows/lint.yml@main
 
   createRG: 
     runs-on: ubuntu-latest
