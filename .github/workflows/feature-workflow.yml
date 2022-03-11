@@ -13,7 +13,7 @@ jobs:
   lint: 
      uses: vermegi/biceplearnGHPRs/.github/workflows/lint.yml@main
 
-  createRG: 
+  deploy: 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -21,7 +21,7 @@ jobs:
         name: Sign in to Azure
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}    
-      - name: get resource group name
+      - name: create resource group name
         id: rgName
         run: |
          echo "github ref_name: ${{ github.ref }}"
@@ -32,4 +32,14 @@ jobs:
         name: Create resource group
         with: 
           inlineScript: az group create -n ${{steps.rgName.outputs.rgname}} -l westeurope
+      - uses: azure/arm-deploy@v1
+        id: deploy
+        name: Deploy Bicep file
+        with:
+          failOnStdErr: false
+          deploymentName: ${{ github.run_number }}
+          resourceGroupName: ${{ steps.rgName.outputs.rgname }}
+          template: ./deploy/main.bicep
+          parameters: >
+            environmentType=${{ env.ENVIRONMENT_TYPE }}
 
