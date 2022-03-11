@@ -1,4 +1,4 @@
-name: learn-bicep-branch-pr
+name: feature-workflow
 
 on: 
   push:
