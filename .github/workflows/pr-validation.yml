@@ -5,7 +5,7 @@ on:
     types: [opened, synchronize, reopened]
     
 jobs:
-  lint: 
+  my-status-check: 
      uses: vermegi/biceplearnGHPRs/.github/workflows/lint.yml@main
 
   # deploy: 
