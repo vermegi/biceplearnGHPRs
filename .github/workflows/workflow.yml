@@ -1,11 +1,7 @@
 name: featuretest-workflow
 
 on: 
-  push:
-    branches: 
-      - feature/*
   pull_request:
-    types: [opened, edited, closed]
     
 env: 
     AZURE_RESOURCEGROUP_NAME: ToyWebsiteTest
@@ -24,6 +20,9 @@ jobs:
     steps:
       - name: GHoutputs
         run: |
+          echo "-----------------------------"
+          echo "full object: ${{ github }}"
+          echo "-----------------------------"
           echo "github head_ref: ${{ github.head_ref }}" 
           echo "github base_ref: ${{ github.base_ref }}"
           echo "github ref: ${{ github.ref }}"
