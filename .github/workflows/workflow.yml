@@ -2,6 +2,7 @@ name: featuretest-workflow
 
 on: 
   pull_request:
+    types: [opened, synchronize, reopened, closed]
     
 env: 
     AZURE_RESOURCEGROUP_NAME: ToyWebsiteTest
