@@ -4,7 +4,7 @@ on: [pull_request, workflow_dispatch]
     
 jobs:
   my-status-check: 
-     uses: ./.github/workflows/lint.yml@main
+     uses: ./.github/workflows/lint.yml
 
   deploy: 
     runs-on: ubuntu-latest
