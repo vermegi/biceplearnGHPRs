@@ -22,7 +22,8 @@ jobs:
       - name: GHoutputs
         run: |
           echo "-----------------------------"
-          echo "full object: ${{ github }}"
+          echo "full object:"
+          echo "${{ github }}" | python -m json.tool
           echo "-----------------------------"
           echo "github head_ref: ${{ github.head_ref }}" 
           echo "github base_ref: ${{ github.base_ref }}"
