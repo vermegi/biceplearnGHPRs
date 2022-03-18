@@ -18,7 +18,7 @@ jobs:
         id: rgName
         run: |
          echo "github event number: ${{ github.event.number }}"
-         export rgname=rg_f_${{ github.event.number }}
+         export rgname=rg_pr_${{ github.event.number }}
          echo "::set-output name=rgname::$rgname"  
       - uses: Azure/cli@v1
         name: Create resource group
