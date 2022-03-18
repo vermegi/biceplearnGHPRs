@@ -23,7 +23,7 @@ jobs:
         run: |
           echo "-----------------------------"
           echo "full object:"
-          echo "${{ github }}" | jq .
+          echo JSON.stringify("${{ github }}", null, 4);
           echo "-----------------------------"
           echo "github head_ref: ${{ github.head_ref }}" 
           echo "github base_ref: ${{ github.base_ref }}"
