@@ -22,4 +22,4 @@ jobs:
       - uses: Azure/cli@v1
         name: Delete resource group
         with: 
-          inlineScript: az group delete -n ${{steps.rgName.outputs.rgname}} 
+          inlineScript: az group delete -n ${{steps.rgName.outputs.rgname}} --yes
