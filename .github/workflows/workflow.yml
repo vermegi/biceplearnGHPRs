@@ -23,7 +23,7 @@ jobs:
         run: |
           echo "-----------------------------"
           echo "full object:"
-          echo "${{ github }}" | jq '.'
+          ${{ github }} | jq '.'
           echo "-----------------------------"
           echo "github head_ref: ${{ github.head_ref }}" 
           echo "github base_ref: ${{ github.base_ref }}"
