@@ -16,6 +16,7 @@ jobs:
      - name: Run Bicep linter
        run: az bicep build --file deploy/main.bicep
   
+  
   testGHBranchName:
     runs-on: ubuntu-latest
     steps:
